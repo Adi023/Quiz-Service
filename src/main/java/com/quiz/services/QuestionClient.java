@@ -12,5 +12,5 @@ import com.quiz.entity.Question;
 public interface QuestionClient {
 
 	@GetMapping("/question/quiz/{quizId}")
-	List<Question> getQuestionOfQuiz(@PathVariable Long quizId);
+	List<Question> getQuestionOfQuiz(@PathVariable("quizId") Long quizId);
 }

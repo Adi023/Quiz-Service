@@ -2,6 +2,7 @@ package com.quiz.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,12 +18,8 @@ import com.quiz.services.QuizService;
 @RequestMapping("/quiz")
 public class QuizController{
 	
+	@Autowired
 	private QuizService quizService;
-	
-	public QuizController(QuizService quizService)
-	{
-		this.quizService=quizService;
-	}
 	
 	@PostMapping
 	public Quiz add(@RequestBody Quiz quiz) {
@@ -37,7 +34,7 @@ public class QuizController{
 	}
 
 	@GetMapping("/{id}")
-	public Quiz get(@PathVariable Long id) {
+	public Quiz get(@PathVariable("id") Long id) {
 		 
 		return quizService.get(id);
 	}

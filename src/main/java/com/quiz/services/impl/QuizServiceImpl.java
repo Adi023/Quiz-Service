@@ -13,15 +13,11 @@ import com.quiz.services.QuizService;
 
 @Service
 public class QuizServiceImpl implements QuizService{
-	
+	@Autowired
 	private QuizRepository quizRepo;
 	
 	@Autowired
 	private QuestionClient questionClient;
-	
-	public QuizServiceImpl(QuizRepository quizRepo) {
-		this.quizRepo=quizRepo;
-	}
 
 	@Override
 	public Quiz add(Quiz quiz) {
